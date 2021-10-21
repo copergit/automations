@@ -3,3 +3,4 @@ keys
 id_rsa
 id_rsa.pub
 *.bz2
+test_playbook
