@@ -1,0 +1,19 @@
+---
+ - name: Install packages via choco
+   hosts: docenti
+   tasks:
+   - name: Install multiple packages
+     win_chocolatey:
+       name:
+       - iperf3
+       - texstudio
+       - maxima
+       - julia
+       - vscode
+       - microsoft-windows-terminal
+       - sudo
+       - nomachine
+       - rsat
+       - 7zip
+       - veyon
+       state: present

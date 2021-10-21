@@ -1,0 +1,5 @@
+---
+- name: shutdown all windows machines
+  hosts: all
+  tasks:
+    - raw: shutdown /s /t 0

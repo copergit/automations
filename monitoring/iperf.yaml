@@ -1,0 +1,35 @@
+- hosts: localhost
+  gather_facts: no
+  connection: local
+  tasks:
+  - name: clean previous run
+    shell: "rm -f /opt/ansible/monitoring/results/*.log"
+
+- hosts: ansible
+  gather_facts: no
+  remote_user: ansible
+  tasks:
+  - name: start server iperf
+    shell: iperf3 --server --daemon
+    
+- hosts: lab4
+  serial: 1
+  gather_facts: no
+  vars:
+    iperf_target: 192.168.94.100
+  tasks:
+  - name: clean up
+    shell: "rm -f *.log"
+  - command: iperf3 --json --client {{ iperf_target }} -Z -A 1 --time 40  --logfile {{ inventory_hostname }}.log
+    register: iperf_results
+  - debug:
+      var: iperf_results.stdout
+  - name: grab iperf output
+    fetch: src={{ inventory_hostname }}.log dest=results/ flat=yes
+  
+- hosts: localhost
+  gather_facts: no
+  connection: local
+  tasks:
+  - name: stats
+    shell: "python3 ./graph/iperf3_plot.py -f results -o plots/all.png"

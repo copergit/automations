@@ -1,0 +1,15 @@
+---
+ - name: Install packages via apt
+   hosts: all
+   become: true
+   tasks:
+   - name: Wait for connection
+     wait_for_connection:
+   - name: Run the equivalent of "apt-get update" as a separate step
+     apt:
+       update_cache: yes
+   - name: Install packages
+     apt:
+       pkg:
+        - grub-ipxe
+        - iperf3

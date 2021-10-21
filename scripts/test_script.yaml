@@ -1,0 +1,36 @@
+---
+ - name: Install packages via choco
+   hosts: docenti
+   tasks:
+     - name: Run basic PowerShell script
+       ansible.windows.win_powershell: 
+         script: |
+           echo "Hello World"
+     - name: Run code in check mode
+       ansible.windows.win_powershell:
+         script: |
+            [CmdletBinding(SupportsShouldProcess)]
+            param ()
+
+            # Use $Ansible to detect check mode
+            if ($Ansible.CheckMode) {
+              echo 'running in check mode'
+            }
+            else {
+              echo 'running in normal mode'
+            }
+   
+            # Use builtin ShouldProcess (-WhatIf)
+            if ($PSCmdlet.ShouldProcess('target')) {
+              echo 'also running in normal mode'
+            }
+            else {
+              echo 'also running in check mode'
+            }
+            check_mode: yes
+     - name: Return a failure back to Ansible
+       ansible.windows.win_powershell:
+          script: |
+            if (Test-Path C:\bad.file) {
+              $Ansible.Failed = $true
+            }      

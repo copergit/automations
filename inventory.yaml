@@ -1,0 +1,758 @@
+docenti:
+  hosts:
+    l1-n100:
+      ansible_connection: ssh
+      ansible_host: 192.168.91.100
+      ansible_shell_type: cmd
+      broadcast: 192.168.91.253
+      mac: 00:d8:61:45:2a:3b
+    l4-nz00:
+      ansible_connection: ssh
+      ansible_host: 192.168.94.100
+      ansible_shell_type: cmd
+      broadcast: 192.168.94.253
+      mac: a4:ae:12:7f:c9:5b
+    l2-n200:
+      ansible_connection: ssh
+      ansible_host: 192.168.92.100
+      ansible_shell_type: cmd
+      broadcast: 192.168.92.253
+      mac: 00:d8:61:45:28:e3
+lab1:
+  hosts:
+    lab1-n101:
+      ansible_host: 192.168.91.1
+      broadcast: 192.168.91.253
+      mac: d8:cb:8a:60:aa:f6
+    lab1-n102:
+      ansible_host: 192.168.91.2
+      broadcast: 192.168.91.253
+      mac: d0:27:88:93:09:90
+    lab1-n103:
+      ansible_host: 192.168.91.3
+      broadcast: 192.168.91.253
+      mac: d0:27:88:93:09:64
+    lab1-n104:
+      ansible_host: 192.168.91.4
+      broadcast: 192.168.91.253
+      mac: d0:27:88:93:09:61
+    lab1-n105:
+      ansible_host: 192.168.91.5
+      broadcast: 192.168.91.253
+      mac: d0:27:88:95:07:20
+    lab1-n106:
+      ansible_host: 192.168.91.6
+      broadcast: 192.168.91.253
+      mac: d8:cb:8a:60:aa:86
+    lab1-n107:
+      ansible_host: 192.168.91.7
+      broadcast: 192.168.91.253
+      mac: d0:27:88:95:07:a4
+    lab1-n108:
+      ansible_host: 192.168.91.8
+      broadcast: 192.168.91.253
+      mac: d8:cb:8a:60:aa:83
+    lab1-n109:
+      ansible_host: 192.168.91.9
+      broadcast: 192.168.91.253
+      mac: d0:27:88:95:07:ac
+    lab1-n110:
+      ansible_host: 192.168.91.10
+      broadcast: 192.168.91.253
+      mac: d0:27:88:95:07:1e
+    lab1-n111:
+      ansible_host: 192.168.91.11
+      broadcast: 192.168.91.253
+      mac: d0:27:88:95:07:6a
+    lab1-n112:
+      ansible_host: 192.168.91.12
+      broadcast: 192.168.91.253
+      mac: d0:27:88:95:07:cc
+    lab1-n113:
+      ansible_host: 192.168.91.13
+      broadcast: 192.168.91.253
+      mac: d0:27:88:95:07:12
+    lab1-n114:
+      ansible_host: 192.168.91.14
+      broadcast: 192.168.91.253
+      mac: d8:cb:8a:60:aa:8f
+    lab1-n115:
+      ansible_host: 192.168.91.15
+      broadcast: 192.168.91.253
+      mac: d0:27:88:95:07:c3
+    lab1-n116:
+      ansible_host: 192.168.91.16
+      broadcast: 192.168.91.253
+      mac: d0:27:88:93:4c:35
+    lab1-n117:
+      ansible_host: 192.168.91.17
+      broadcast: 192.168.91.253
+      mac: d0:27:88:95:06:b5
+    lab1-n118:
+      ansible_host: 192.168.91.18
+      broadcast: 192.168.91.253
+      mac: d0:27:88:94:ff:c2
+    lab1-n119:
+      ansible_host: 192.168.91.19
+      broadcast: 192.168.91.253
+      mac: d0:27:88:93:83:be
+    lab1-n120:
+      ansible_host: 192.168.91.20
+      broadcast: 192.168.91.253
+      mac: d8:cb:8a:4d:24:8b
+    lab1-n121:
+      ansible_host: 192.168.91.21
+      broadcast: 192.168.91.253
+      mac: d8:cb:8a:60:aa:e2
+    lab1-n122:
+      ansible_host: 192.168.91.22
+      broadcast: 192.168.91.253
+      mac: d8:cb:8a:60:aa:e5
+    lab1-n123:
+      ansible_host: 192.168.91.23
+      broadcast: 192.168.91.253
+      mac: d8:cb:8a:60:aa:bd
+    lab1-n124:
+      ansible_host: 192.168.91.24
+      broadcast: 192.168.91.253
+      mac: d8:cb:8a:60:aa:94
+    lab1-n125:
+      ansible_host: 192.168.91.25
+      broadcast: 192.168.91.253
+      mac: d0:27:88:93:83:d6
+    lab1-n126:
+      ansible_host: 192.168.91.26
+      broadcast: 192.168.91.253
+      mac: d0:27:88:95:07:c6
+    lab1-n127:
+      ansible_host: 192.168.91.27
+      broadcast: 192.168.91.253
+      mac: d8:cb:8a:4d:25:7b
+    lab1-n128:
+      ansible_host: 192.168.91.28
+      broadcast: 192.168.91.253
+      mac: d8:cb:8a:60:aa:8b
+    lab1-n129:
+      ansible_host: 192.168.91.29
+      broadcast: 192.168.91.253
+      mac: d8:cb:8a:60:aa:d8
+lab2:
+  hosts:
+    lab2-n201:
+      ansible_host: 192.168.92.1
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:b9:6e
+    lab2-n202:
+      ansible_host: 192.168.92.2
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:b1:7b
+    lab2-n203:
+      ansible_host: 192.168.92.3
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:b1:64
+    lab2-n204:
+      ansible_host: 192.168.92.4
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:af:5b
+    lab2-n205:
+      ansible_host: 192.168.92.5
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:b1:02
+    lab2-n206:
+      ansible_host: 192.168.92.6
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:ad:7c
+    lab2-n207:
+      ansible_host: 192.168.92.7
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:b1:17
+    lab2-n208:
+      ansible_host: 192.168.92.8
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:af:c7
+    lab2-n209:
+      ansible_host: 192.168.92.9
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:af:cd
+    lab2-n210:
+      ansible_host: 192.168.92.10
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:b1:26
+    lab2-n211:
+      ansible_host: 192.168.92.11
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:c9:52
+    lab2-n212:
+      ansible_host: 192.168.92.12
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:b3:6f
+    lab2-n213:
+      ansible_host: 192.168.92.13
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:ca:f1
+    lab2-n214:
+      ansible_host: 192.168.92.14
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:8c:2b
+    lab2-n215:
+      ansible_host: 192.168.92.15
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:b9:c6
+    lab2-n216:
+      ansible_host: 192.168.92.16
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:b3:65
+    lab2-n217:
+      ansible_host: 192.168.92.17
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:be:14
+    lab2-n218:
+      ansible_host: 192.168.92.18
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:b3:4b
+    lab2-n219:
+      ansible_host: 192.168.92.19
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:b9:7b
+    lab2-n220:
+      ansible_host: 192.168.92.20
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:c8:ed
+    lab2-n221:
+      ansible_host: 192.168.92.21
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:af:11
+    lab2-n222:
+      ansible_host: 192.168.92.22
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:b3:6a
+    lab2-n223:
+      ansible_host: 192.168.92.23
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:b0:fe
+    lab2-n224:
+      ansible_host: 192.168.92.24
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:c9:8a
+    lab2-n225:
+      ansible_host: 192.168.92.25
+      broadcast: 192.168.92.253
+      mac: 04:d4:c4:6a:c9:61
+lab4:
+  hosts:
+    lab4-nz01:
+      ansible_host: 192.168.94.1
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:43:2b
+    lab4-nz02:
+      ansible_host: 192.168.94.2
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:42:f0
+    lab4-nz03:
+      ansible_host: 192.168.94.3
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:42:86
+    lab4-nz04:
+      ansible_host: 192.168.94.4
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:43:70
+    lab4-nz05:
+      ansible_host: 192.168.94.5
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:44:6b
+    lab4-nz06:
+      ansible_host: 192.168.94.6
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:41:c1
+    lab4-nz07:
+      ansible_host: 192.168.94.7
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:44:70
+    lab4-nz08:
+      ansible_host: 192.168.94.8
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:42:cb
+    lab4-nz09:
+      ansible_host: 192.168.94.9
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:43:cd
+    lab4-nz10:
+      ansible_host: 192.168.94.10
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:44:bc
+    lab4-nz11:
+      ansible_host: 192.168.94.11
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:42:22
+    lab4-nz12:
+      ansible_host: 192.168.94.12
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:43:d7
+    lab4-nz13:
+      ansible_host: 192.168.94.13
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:42:9d
+    lab4-nz14:
+      ansible_host: 192.168.94.14
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:44:34
+    lab4-nz15:
+      ansible_host: 192.168.94.15
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:41:59
+    lab4-nz16:
+      ansible_host: 192.168.94.16
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:41:d8
+    lab4-nz17:
+      ansible_host: 192.168.94.17
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:45:a2
+    lab4-nz18:
+      ansible_host: 192.168.94.18
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:41:c7
+    lab4-nz19:
+      ansible_host: 192.168.94.19
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:41:7b
+    lab4-nz20:
+      ansible_host: 192.168.94.20
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:42:61
+    lab4-nz21:
+      ansible_host: 192.168.94.21
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:45:8c
+    lab4-nz22:
+      ansible_host: 192.168.94.22
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:42:7f
+    lab4-nz23:
+      ansible_host: 192.168.94.23
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:41:99
+    lab4-nz24:
+      ansible_host: 192.168.94.24
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:41:a0
+    lab4-nz25:
+      ansible_host: 192.168.94.25
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:43:e9
+    lab4-nz26:
+      ansible_host: 192.168.94.26
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:44:35
+    lab4-nz27:
+      ansible_host: 192.168.94.27
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:44:6f
+    lab4-nz28:
+      ansible_host: 192.168.94.28
+      broadcast: 192.168.94.253
+      mac: 3c:7c:3f:f2:42:c0
+laptop:
+  hosts:
+    biblio1-n512:
+      ansible_connection: ssh
+      ansible_host: 10.1.1.12
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 60:a4:4c:25:83:73
+    bio1-n518:
+      ansible_connection: ssh
+      ansible_host: 10.1.1.18
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: d0:27:88:95:07:0f
+    desktop-n019:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.19
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:5f:f4:79:a4:b5
+    desktop-n041:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.41
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 9c:5c:8e:01:98:54
+    desktop-n042:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.42
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 9c:5c:8e:01:98:5c
+    doc1-n502:
+      ansible_connection: ssh
+      ansible_host: 10.1.1.02
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:9c:23:ed:68:41
+    laptop-n008:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.08
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: b0:0c:d1:7f:5f:9f
+    laptop-n043:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.43
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: e4:e7:49:c1:fd:8f
+    laptop-n044:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.44
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: e4:e7:49:c1:ff:2b
+    laptop-n048:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.48
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: c4:65:16:9c:34:27
+    laptop-n065:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.65
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:c0:72:ea
+    laptop-n066:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.66
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:ec:5b:45
+    laptop-n067:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.67
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:ec:5b:53
+    laptop-n068:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.68
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:c0:72:f4
+    laptop-n069:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.69
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:ea:3d:ce
+    laptop-n070:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.70
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:ea:3e:03
+    laptop-n071:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.71
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:ec:59:e2
+    laptop-n072:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.72
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:ea:3c:c8
+    laptop-n073:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.73
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:c0:72:4f
+    laptop-n074:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.74
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:c0:72:f0
+    laptop-n075:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.75
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:c0:72:33
+    laptop-n076:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.76
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:ec:59:d7
+    laptop-n077:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.77
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:ea:3c:d4
+    laptop-n078:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.78
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:ea:3e:f2
+    laptop-n079:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.79
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:c0:6f:ed
+    laptop-n080:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.80
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:c0:72:f8
+    laptop-n081:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.81
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:c0:72:ae
+    laptop-n082:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.82
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:ec:5a:c8
+    laptop-n083:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.83
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:c0:72:59
+    laptop-n084:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.84
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:c0:72:f1
+    laptop-n085:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.85
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:c0:72:f3
+    laptop-n086:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.86
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:ea:3e:7b
+    laptop-n087:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.87
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:c0:73:41
+    laptop-n089:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.89
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:c0:72:e6
+    laptop-n090:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.90
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:ea:40:41
+    laptop-n091:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.91
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:ea:3d:54
+    laptop-n092:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.92
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:c0:72:5b
+    laptop-n093:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.93
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: bc:e9:2f:c0:73:40
+    laptop-n095:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.95
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:9e:91:00
+    laptop-n096:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.96
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:9e:8e:82
+    laptop-n097:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.97
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:9e:a5:c1
+    laptop-n098:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.98
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:9e:a6:47
+    laptop-n099:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.99
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:9e:a7:10
+    laptop-n406:
+      ansible_connection: ssh
+      ansible_host: 10.1.1.56
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: b0:0c:d1:7f:5e:df
+    laptop-na00:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.100
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:9e:a2:85
+    laptop-na01:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.101
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:9e:a5:d9
+    laptop-na02:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.102
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:9e:90:4f
+    laptop-na03:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.103
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:9e:a6:60
+    laptop-na04:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.104
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:9e:a6:96
+    laptop-na05:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.105
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:9e:a6:3d
+    laptop-na06:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.106
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:eb:37:fc
+    laptop-na07:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.107
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:9e:a3:b3
+    laptop-na08:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.108
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:eb:37:b0
+    laptop-na09:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.109
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:9e:a5:b2
+    laptop-na10:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.110
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:9e:90:ee
+    laptop-na14:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.114
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:9e:eb:c2
+    laptop-na15:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.115
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:eb:04:93
+    laptop-na16:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.116
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:9e:ec:d6
+    laptop-na17:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.117
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:eb:04:64
+    laptop-na18:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.118
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:eb:03:4f
+    laptop-na19:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.119
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:eb:06:5d
+    laptop-na20:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.120
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:24:a9:9e:eb:50
+    laptop-na24:
+      ansible_connection: ssh
+      ansible_host: 10.1.0.124
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 14:cb:19:68:3f:f6
+    scrut1-n521:
+      ansible_connection: ssh
+      ansible_host: 10.1.1.21
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 30:8d:99:f5:68:64
+    sicur-n514:
+      ansible_connection: ssh
+      ansible_host: 10.1.1.14
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 10:e7:c6:41:04:10
+    tec1-n528:
+      ansible_connection: ssh
+      ansible_host: 10.1.1.28
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 90:2b:34:0d:63:6c
+    tec2-n529:
+      ansible_connection: ssh
+      ansible_host: 10.1.1.29
+      ansible_shell_type: cmd
+      broadcast: 10.1.255.253
+      mac: 90:2b:34:0d:62:14
