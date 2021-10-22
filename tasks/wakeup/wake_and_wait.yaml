@@ -1,13 +1,12 @@
 ---
 # Wake desktops, wait for them to become ready and continue playbook
 - hosts: all
-  become: true
   gather_facts: no
   tasks:
   - name: Send magic Wake-On-Lan packet to turn on individual systems
     wakeonlan:
       mac: '{{ mac }}'
-      broadcast: 192.168.91.253
+      broadcast: '{{ broadcast }}'
     delegate_to: localhost
 
   - name: Wait for system to become reachable
