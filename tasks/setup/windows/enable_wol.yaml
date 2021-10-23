@@ -5,7 +5,7 @@
   tasks:
     - name: Copy folder contents recursively
       ansible.windows.win_copy:
-          src: /opt/ansible/dist_files/power/
+          src: /opt/ansible/scripts/power/
           dest: C:\users\tecnico
 
     - name: Change the working directory to somedir/ before executing the command
