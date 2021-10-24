@@ -1,0 +1,12 @@
+---
+# configure php apache mod
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Update overlay root script
+       ansible.builtin.copy:
+         src: /opt/ansible/scripts/overlay/overlayroot
+         dest: /usr/local/bin/overlayroot
+         owner: root
+         group: root

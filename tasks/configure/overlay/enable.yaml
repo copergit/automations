@@ -1,0 +1,12 @@
+---
+# configure php apache mod
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Enable overlay fs
+       ansible.builtin.shell: |
+          /usr/local/bin/overlayroot -y
+          exit 0
+     - name: Shutdown 
+       community.general.shutdown:

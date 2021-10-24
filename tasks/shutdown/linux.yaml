@@ -1,0 +1,8 @@
+---
+# configure php apache mod
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Shutdown 
+       community.general.shutdown:

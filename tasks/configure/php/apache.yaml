@@ -1,0 +1,21 @@
+---
+# configure php apache mod
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Disable overlay fs
+       ansible.builtin.shell: |
+          /usr/local/bin/overlayroot -n
+          exit 0
+     - name: Reboot after disable overlay fs
+       reboot:
+     - name: Wait for connection
+       wait_for_connection:
+         delay: 2
+     - name: Copy new configuration file
+       ansible.builtin.copy:
+         src: /opt/ansible/configurations/php/apache/php.ini
+         dest: /etc/php/7.4/apache2/php.ini
+         owner: root
+         group: root

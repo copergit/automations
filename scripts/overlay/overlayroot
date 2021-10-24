@@ -1,0 +1,228 @@
+#!/bin/bash
+#----- Starting ----
+file="/etc/overlayroot.conf"
+
+########################
+# The command line help #
+#########################
+display_help() {
+echo "Usage: $0 [option...] " >&2
+echo "   -u           update"
+echo "   -y           apply overlay"
+echo "   -n           remove overlay"
+echo "   -r           restart"
+echo "   -s           shutdown"
+echo 
+}
+
+# A POSIX variable
+OPTIND=1
+# Initialize our own variables:
+apply_overlay=0
+remove_overlay=0
+update=0
+shutdown=0
+interactive=1
+
+while getopts "h?rsuyn" opt; do
+    case "$opt" in
+    h|\?)
+        display_help
+	interactive=0
+        exit 0
+        ;;
+    y)  apply_overlay=1
+	interactive=0
+        ;;
+    n)  remove_overlay=1
+	interactive=0
+        ;;
+    u)  update=1
+	interactive=0
+        ;;
+    r)  restart=1
+	interactive=0
+        ;;
+    s)  shutdown=1
+	interactive=0
+        ;;
+    esac
+done
+
+shift $((OPTIND-1))
+
+[ "${1:-}" = "--" ] && shift
+
+#----- Variabili  -----
+is_opt=false
+olr_tmp_co=1
+mount | grep 'overlayroot on / type overlay' &> /dev/null
+if [ $? == 0 ]; then
+   overlay=true
+   actual=" overlay attivo"   
+else
+   overlay=false
+   actual=" overlay disattivo"
+  
+fi
+
+
+#-----------------------------------
+########################
+# The command line help #
+#########################
+display_help() {
+echo "Usage: $0 [option...] " >&2
+echo "   -u           update"
+echo "   -y           apply overlay"
+echo "   -n           remove overlay"
+echo "   -r           restart"
+echo "   -s           shutdown"
+echo
+    # echo some stuff here for the -a or --add-options 
+    exit 1
+}
+
+#------------------------------------
+if [ $interactive = 1 ]; then
+
+
+
+#----- Variabili  -----
+is_opt=false
+olr_tmp_co=1
+
+
+echo
+echo "==================================================="
+echo "            Overlay Root  Setup"
+echo "         By : Fabio Maria Antoniali"
+echo "==================================================="
+echo " Stato corrente      : $actual"
+echo "==================================================="
+echo 
+
+echo "Opzioni selezionabili:"
+if [ $overlay = true ]; then 
+echo "  1. Rimuovi protezione overlay e riavvia"
+echo "  2. Rimuovi protezione overlay e ferma"
+echo "  3. Esci"
+echo
+else
+echo "  1. Attiva protezione overlay e riavvia"
+echo "  2. Attiva protezione overlay e ferma"
+echo "  3. Esci"
+echo
+fi
+#-------------------
+
+
+
+#----- Menu  -----
+while [ $is_opt = false ]; do
+	echo -n "Please type the menu number you want: "
+	read olr_opt
+
+	if [[ $olr_opt = 1 ]]; then
+		is_opt=true
+		olr_tmp_co=1
+	elif [[ $olr_opt = 2 ]]; then
+		is_opt=true
+		olr_tmp_co=2
+	elif [[ $olr_opt = 3 ]]; then
+		is_opt=true
+		echo
+        	exit
+	else
+		echo "Sorry, you chose wrong menu. Please try again..."
+		echo
+		is_opt=false
+	fi
+done
+#------------------------------------------------
+
+
+
+if [[ $olr_opt = '1' ]]; then
+		if [[ $overlay = true ]]; then	       		
+			sudo overlayroot-chroot rm /etc/overlayroot.local.conf		
+		else
+			echo overlayroot="tmpfs:swap=1"  | sudo tee /etc/overlayroot.local.conf
+		fi	
+fi
+if [[ $olr_opt = '2' ]]; then
+                if [[ $overlay = true ]]; then
+                        sudo overlayroot-chroot rm /etc/overlayroot.local.conf
+                else
+                        echo overlayroot="tmpfs:swap=1"  | sudo tee /etc/overlayroot.local.conf
+                fi      
+fi
+
+
+
+
+
+
+
+else
+
+if [[ $overlay = true ]]; then
+	if [[ $update = 1 ]]; then
+echo "Aggiornamento pacchetti..."
+sudo overlayroot-chroot <<'EOF'
+apt update
+apt upgrade -y
+exit
+EOF
+
+	fi
+	if [[ $remove_overlay = 1 ]]; then
+		sudo overlayroot-chroot rm /etc/overlayroot.local.conf
+		echo "Overlay rimosso. Riavvia il sistema!" 
+		if [[ $restart = 1 ]]; then
+			echo "Riavvio in corso..." 
+			
+		else
+			echo "Spegnimento in corso..."
+			
+		fi
+
+	fi
+	if [[ $apply_overlay = 1 ]]; then
+		echo "Overlay già attivo!"
+		exit 1
+	fi
+fi
+if [[ $overlay = false ]]; then
+	if [[ $update = 1 ]]; then
+		echo "Aggiornamento pacchetti..."
+		sudo apt update
+		sudo apt -y upgrade
+
+	fi
+	if [[ $apply_overlay = 1 ]]; then
+		echo overlayroot="tmpfs:swap=1"  | sudo tee /etc/overlayroot.local.conf 
+		echo "Overlay attivato."
+		if [[ $restart = 1 ]]; then
+			echo "Riavvio in corso..."
+		else
+			echo "Spegnimento in corso..."
+		fi
+	fi
+	if [[ $remove_overlay = 1 ]]; then
+		echo "Overlay già rimosso!"
+		exit 1
+	fi
+
+fi
+
+if [[ $restart = 1 ]]; then
+	echo "Riavvio in corso..."
+fi
+if [[ $shutdown = 1 ]]; then
+	echo "Spegnimento in corso..."
+fi
+
+
+fi
+
