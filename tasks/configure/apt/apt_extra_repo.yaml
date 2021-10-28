@@ -1,0 +1,18 @@
+---
+ - name: Configure apt repository
+   hosts: all
+   become: true
+   gather_facts: no
+   tasks:
+   - name: Wait for connection
+     wait_for_connection:
+       delay: 60
+       timeout: 400
+   - name: Add TeXstudio and Veyon apt_repository
+     ansible.builtin.apt_repository:
+       repo: ppa:sunderme/texstudio
+       state: present
+   - name: Add TeXstudio apt_repository
+     ansible.builtin.apt_repository:
+       repo: ppa:veyon/stable
+       state: present

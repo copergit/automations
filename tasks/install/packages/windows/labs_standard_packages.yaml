@@ -1,0 +1,24 @@
+---
+ - name: Install packages on docs workstations via choco
+   hosts: docenti
+   tasks:
+   - name: Install multiple packages without config
+     win_chocolatey:
+       name:
+       - iperf3
+       - texstudio
+       - maxima
+       - julia
+       - vscode
+       - microsoft-windows-terminal
+       - sudo
+       - nomachine
+       - rsat
+       - 7zip
+       state: present
+   - name: Install veyon
+     win_chocolatey:
+       name: veyon
+       state: present
+       package_params: /Master
+       

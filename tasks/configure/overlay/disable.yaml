@@ -1,12 +1,12 @@
 ---
-# configure php apache mod
+# disable overlayroot
 - hosts: all
   become: true
   gather_facts: no
   tasks:
      - name: Disable overlay fs
        ansible.builtin.shell: |
-          /usr/local/bin/overlayroot -n
+          overlayroot-chroot rm /etc/overlayroot.local.conf
           exit 0
      - name: Reboot
        reboot:

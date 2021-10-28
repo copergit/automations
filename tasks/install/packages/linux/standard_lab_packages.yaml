@@ -1,0 +1,20 @@
+---
+ - name: Install standard lab packages
+   hosts: all
+   become: true
+   gather_facts: no
+   tasks:
+   - name: Wait for connection
+     wait_for_connection:
+   - name: Update packages database
+     apt:
+       update_cache: yes
+   - name: Install packages
+     apt:
+       state: latest
+       pkg:
+        - grub-ipxe
+        - iperf3
+        - texstudio
+        - mtr
+        - veyon

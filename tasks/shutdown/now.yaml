@@ -5,8 +5,10 @@
   ignore_unreachable: yes
   tasks:
      - name: Shutdown 
+       become: true
        community.general.shutdown:
        when: os_family != "windows" 
      - name: Run an executable and send data to the stdin for the executable
+       become: false
        win_command: powershell.exe Stop-Computer -Force
        when: os_family == "windows"

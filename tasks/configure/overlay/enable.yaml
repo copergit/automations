@@ -1,12 +1,12 @@
 ---
-# configure php apache mod
+# enable overlayroot
 - hosts: all
   become: true
   gather_facts: no
   tasks:
      - name: Enable overlay fs
        ansible.builtin.shell: |
-          /usr/local/bin/overlayroot -y
+          echo overlayroot="tmpfs:swap=1"  | sudo tee /etc/overlayroot.local.conf
           exit 0
      - name: Shutdown 
        community.general.shutdown:

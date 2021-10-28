@@ -134,7 +134,7 @@ while [ $is_opt = false ]; do
 		echo
         	exit
 	else
-		echo "Sorry, you chose wrong menu. Please try again..."
+		echo "Sorry, you choose wrong menu. Please try again..."
 		echo
 		is_opt=false
 	fi
@@ -145,16 +145,16 @@ done
 
 if [[ $olr_opt = '1' ]]; then
 		if [[ $overlay = true ]]; then	       		
-			sudo overlayroot-chroot rm /etc/overlayroot.local.conf		
+			sudo overlayroot-chroot rm /etc/overlayroot.local.conf && reboot		
 		else
-			echo overlayroot="tmpfs:swap=1"  | sudo tee /etc/overlayroot.local.conf
+			echo overlayroot="tmpfs:swap=1"  | sudo tee /etc/overlayroot.local.conf && reboot
 		fi	
 fi
 if [[ $olr_opt = '2' ]]; then
                 if [[ $overlay = true ]]; then
-                        sudo overlayroot-chroot rm /etc/overlayroot.local.conf
+                        sudo overlayroot-chroot rm /etc/overlayroot.local.conf && shutdown now
                 else
-                        echo overlayroot="tmpfs:swap=1"  | sudo tee /etc/overlayroot.local.conf
+                        echo overlayroot="tmpfs:swap=1"  | sudo tee /etc/overlayroot.local.conf && shutdown now
                 fi      
 fi
 
@@ -181,10 +181,10 @@ EOF
 		echo "Overlay rimosso. Riavvia il sistema!" 
 		if [[ $restart = 1 ]]; then
 			echo "Riavvio in corso..." 
-			
+			sudo reboot
 		else
 			echo "Spegnimento in corso..."
-			
+			sudo shutdown now
 		fi
 
 	fi
@@ -205,8 +205,10 @@ if [[ $overlay = false ]]; then
 		echo "Overlay attivato."
 		if [[ $restart = 1 ]]; then
 			echo "Riavvio in corso..."
+			sudo reboot
 		else
 			echo "Spegnimento in corso..."
+			sudo shutdown now
 		fi
 	fi
 	if [[ $remove_overlay = 1 ]]; then
@@ -218,9 +220,11 @@ fi
 
 if [[ $restart = 1 ]]; then
 	echo "Riavvio in corso..."
+	sudo reboot
 fi
 if [[ $shutdown = 1 ]]; then
 	echo "Spegnimento in corso..."
+	sudo shutdown now
 fi
 
 
