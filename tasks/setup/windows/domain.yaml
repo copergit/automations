@@ -1,0 +1,13 @@
+---
+# add host to dida domain
+- hosts: laptop
+  gather_facts: no
+  tasks:
+    - name: Join host to domain dida
+      ansible.windows.win_domain_membership:
+          dns_domain_name: dida.liceocopernico.edu.it
+          domain_admin_user: djoin@dida.liceocopernico.edu.it
+          domain_admin_password: Cop@join
+          domain_ou_path: "OU=laptops,OU=Clients,DC=dida,DC=liceocopernico,DC=edu,DC=it"
+          state: domain
+      register: domain_state
