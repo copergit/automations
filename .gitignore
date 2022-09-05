@@ -3,6 +3,7 @@ keys
 id_rsa
 id_rsa.pub
 *.bz2
+*.log
 test_playbook
 inventory.yaml
 DEADJOE

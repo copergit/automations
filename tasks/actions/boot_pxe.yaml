@@ -1,0 +1,14 @@
+---
+# set pxe boot once
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Set pxe boot for next start
+       ansible.builtin.shell: |
+             sudo grub-reboot 2
+     - name: restart machine
+       command: shutdown -r now "Ansible triggered"
+       async: 0
+       poll: 0
+       ignore_errors: True

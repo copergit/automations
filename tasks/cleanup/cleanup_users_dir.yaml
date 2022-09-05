@@ -1,0 +1,18 @@
+---
+# 
+- hosts: aule
+  gather_facts: no
+  tasks:
+    - name: Get gsuite users directories
+      win_find:
+        paths: C:\Users
+        patterns: '.*\..*'
+        use_regex: true
+        file_type: directory
+      register: to_delete
+    - name: Delete old users directories
+      win_file:
+        path: '{{ item.path }}'
+        state: absent
+      with_items: '{{ to_delete.files }}'
+    
