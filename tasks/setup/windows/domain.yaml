@@ -1,13 +1,35 @@
 ---
 # add host to dida domain
-- hosts: laptop
+# usage aplaybook -l <group> --extravars "password=<value>"
+
+- hosts: all
   gather_facts: no
+  strategy: linear
+  vars:
+    password: 'supersecretpassword'
+  serial: 1
   tasks:
+    - name: Send magic Wake-On-Lan packet
+      wakeonlan:
+        mac: '{{ mac }}'
+        broadcast: '{{ broadcast }}'
+      delegate_to: localhost
+    - name: Wait for system to become reachable
+      wait_for_connection:
+        timeout: 30
+      ignore_errors: True
+      register: host_status
     - name: Join host to domain dida
       ansible.windows.win_domain_membership:
           dns_domain_name: dida.liceocopernico.edu.it
           domain_admin_user: djoin@dida.liceocopernico.edu.it
-          domain_admin_password: Cop@join
+          domain_admin_password: {{ password }}
           domain_ou_path: "OU=laptops,OU=Clients,DC=dida,DC=liceocopernico,DC=edu,DC=it"
           state: domain
+      ignore_errors: True    
+      ignore_unreachable: yes
       register: domain_state
+    - name: Reboot after domain join
+      ansible.windows.win_reboot:
+      ignore_unreachable: yes
+      ignore_errors: True

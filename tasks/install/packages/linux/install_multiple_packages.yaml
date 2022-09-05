@@ -13,3 +13,4 @@
        pkg:
         - grub-ipxe
         - iperf3
+        - scribus

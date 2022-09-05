@@ -15,6 +15,10 @@
        - nomachine
        - rsat
        - 7zip
+       - xampp-80
+       - scribus
+       - freecad
+       - blender
        state: present
    - name: Install veyon
      win_chocolatey:

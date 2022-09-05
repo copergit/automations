@@ -11,4 +11,7 @@
      - name: Run an executable and send data to the stdin for the executable
        become: false
        win_command: powershell.exe Stop-Computer -Force
+       ignore_errors: True    
+       ignore_unreachable: yes
        when: os_family == "windows"
+       

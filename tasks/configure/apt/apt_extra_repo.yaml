@@ -8,11 +8,22 @@
      wait_for_connection:
        delay: 60
        timeout: 400
-   - name: Add TeXstudio and Veyon apt_repository
+   - name: Add TeXstudio  apt_repository
      ansible.builtin.apt_repository:
        repo: ppa:sunderme/texstudio
        state: present
-   - name: Add TeXstudio apt_repository
+   - name: Add Veyon apt_repository
      ansible.builtin.apt_repository:
        repo: ppa:veyon/stable
        state: present
+   - name: Add Vuesz apt_repository
+     ansible.builtin.apt_repository:
+        repo: ppa:jeremysanders/ppa
+        state: present
+   - name: Add Vscode repo
+     ansible.builtin.shell: |
+         sudo rm -rf  /etc/apt/sources.list.d/vscode.list
+         sudo curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+         sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+         sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+         exit 0    

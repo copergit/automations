@@ -1,6 +1,6 @@
 ---
 # set default shell to cmd
-- hosts: laptop
+- hosts: all
   gather_facts: no
   tasks:
     - name: Disable Fastboot

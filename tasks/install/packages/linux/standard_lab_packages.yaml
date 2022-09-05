@@ -13,8 +13,35 @@
      apt:
        state: latest
        pkg:
+        - snapd
         - grub-ipxe
         - iperf3
+        - iperf
         - texstudio
         - mtr
+        - scribus
+        - libreoffice-base
+        - bluefish
         - veyon
+        - cmake
+        - code
+        - xorg-dev
+        - mesa-utils
+        - xvfb
+        - octave
+        - libgl1
+        - freeglut3-dev
+        - apt-transport-https
+        - openscad
+        - thonny
+        - ffmpeg
+        - phpmyadmin
+   - name: Install geogebra5 latest version
+     apt:
+       deb: http://www.geogebra.net/linux/pool/main/g/geogebra5/geogebra5_5.0.668.0-3930_amd64.deb
+   - name: Install geogebra6 lastest version
+     apt:
+       deb: http://www.geogebra.net/linux/pool/main/g/geogebra-classic/geogebra-classic_6.0.666.0-202109211234_amd64.deb 
+   - name: Install latest Discord Version
+     apt:
+       deb: https://discordapp.com/api/download?platform=linux&format=deb
