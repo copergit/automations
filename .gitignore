@@ -4,6 +4,7 @@ id_rsa
 id_rsa.pub
 *.bz2
 *.log
+*.exe
 test_playbook
 inventory.yaml
 DEADJOE
