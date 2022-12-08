@@ -1,0 +1,60 @@
+#-----
+# Flush everything
+#-----
+iptables -F
+iptables -F -t nat
+#-----
+
+#-----
+# Set access for localhost
+#-----
+
+iptables -A INPUT -i lo -j ACCEPT
+
+iptables -A INPUT -s 10.27.9.0/24 -j ACCEPT
+
+iptables -A OUTPUT -p udp -d 10.27.9.0/24 -j ACCEPT
+iptables -A OUTPUT -p tcp -d 10.27.9.0/24 -j ACCEPT
+
+
+#veyon
+iptables -A OUTPUT  -s 192.168.4.100 -j ACCEPT
+iptables -A OUTPUT  -s 192.168.2.100 -j ACCEPT
+iptables -A OUTPUT  -s 192.168.1.100 -j ACCEPT
+
+
+
+#Allow DNS
+iptables -A OUTPUT -p udp -m udp --dport 53 -j ACCEPT
+#-----
+
+#Allow SSH
+
+iptables -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 22 -m conntrack --ctstate ESTABLISHED -j ACCEPT
+
+iptables -A OUTPUT -p tcp --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+iptables -A INPUT -p tcp --sport 22 -m conntrack --ctstate ESTABLISHED -j ACCEPT
+
+
+#-----
+# Accept packets belonging to established and related connections
+#-----
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+#-----
+
+#olinfo
+
+iptables -A OUTPUT -p tcp -d 159.149.129.94 --dport 443 -j ACCEPT
+iptables -A OUTPUT -p tcp -d 159.149.129.94 --dport 80 -j ACCEPT
+
+
+
+#-----
+# Lock everything down
+#-----
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT DROP

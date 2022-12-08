@@ -1,0 +1,17 @@
+---
+ - name: Install packages via snap
+   hosts: all
+   become: true
+   tasks:
+   - name: Wait for connection
+     wait_for_connection:
+   - name: Install ubuntu snaps
+     community.general.snap:
+       name:
+         - freecad
+         - arduino
+         - mysql-workbench-community
+   - name: Install blender with option --classic
+     community.general.snap:
+       name: blender
+       classic: yes

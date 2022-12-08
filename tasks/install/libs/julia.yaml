@@ -1,0 +1,24 @@
+---
+# Install non standard packages
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: install Julia packages
+       ansible.builtin.shell: |
+         sudo -H -u studente rm -rf /home/studente/.julia
+         sudo -H -u studente julia -e 'using Pkg; pkg"add Luxor; st"'>>/tmp/JuliaLib.log
+         sudo -H -u studente julia -e 'using Pkg; pkg"add GameZero; st"'>>/tmp/JuliaLib.log
+         sudo -H -u studente julia -e 'using Pkg; pkg"add Colors; st"'>>/tmp/JuliaLib.log
+         sudo -H -u studente julia -e 'using Pkg; pkg"add SmoothLivePlot; st"'>>/tmp/JuliaLib.log
+         sudo -H -u studente julia -e 'using Pkg; pkg"add PackageCompiler; st"'>>/tmp/JuliaLib.log 
+         sudo -H -u studente julia -e 'using Pkg; pkg"add Plots; st"'>>/tmp/JuliaLib.log 
+         sudo -H -u studente xvfb-run -s '-screen 0 1024x768x24' julia -e 'using Pkg; pkg"add GLMakie; st"'>>/tmp/JuliaLib.log
+         sudo -H -u studente julia -e 'using Pkg; pkg"add Combinatorics; st"'>>/tmp/JuliaLib.log
+         sudo -H -u studente julia -e 'using Pkg; pkg"add LinearAlgebra; st"'>>/tmp/JuliaLib.log
+         sudo -H -u studente julia -e 'using Pkg; pkg"add DataStructures; st"'>>/tmp/JuliaLib.log
+         sudo -H -u studente xvfb-run -s '-screen 0 1024x768x24' julia -e 'using Pkg; pkg"add Molly; st"'>>/tmp/JuliaLib.log
+         sudo -H -u studente julia -e 'using Pkg; pkg"add ZMQ; st"'>>/tmp/JuliaLib.log
+         sudo -H -u studente julia -e 'using Pkg; pkg"add JSON; st"'>>/tmp/JuliaLib.log
+         sudo -H -u studente julia -e 'using Pkg; pkg"add Plots; st"'>>/tmp/JuliaLib.log
+         exit 0 	

@@ -1,0 +1,13 @@
+---
+# usage aplaybook -l <group> --extra-vars "password=<value>"
+- name: Change local user password
+  hosts: all
+  become: true
+  vars:
+    username: 'tecnico'
+    password: 'supersecretpassword'
+  tasks:
+    - name: Change Password
+      ansible.builtin.user:
+        name: "{{ username }}"
+        password: "{{ password | password_hash('sha512') }}"

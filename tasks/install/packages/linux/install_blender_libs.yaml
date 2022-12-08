@@ -1,0 +1,44 @@
+---
+# Install blender addons
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: cleanup
+       ansible.builtin.shell: |
+         cd /home/studente
+         rm -rf .config/blender
+         rm -rf .local/lib/python3.10
+         exit 0         
+     - name: Create Blender dir
+       ansible.builtin.file:
+         path: /home/studente/.config/blender
+         state: directory
+         owner: studente
+         group: studente
+         mode: '0755'
+     - name: Copy Blender config
+       ansible.builtin.copy:
+         src: /opt/ansible_data/applications/blender/blender_31_config.tar.bz2
+         dest: /home/studente/.config/blender
+         owner: studente
+         group: studente
+         mode: '644'
+     - name: Copy Blender python packages
+       ansible.builtin.copy:
+         src: /opt/ansible_data/applications/blender/blender_python.tar.bz2 
+         dest: /home/studente/.local/lib
+         owner: studente
+         group: studente
+         mode: '644'         
+     - name: decompress and cleanup
+       ansible.builtin.shell: |
+         cd /home/studente/.config/blender
+         tar jxvf *.tar.bz2
+         rm *.tar.bz2
+         chown studente.studente -R *
+         cd /home/studente/.local/lib
+         tar jxvf *.tar.bz2
+         rm *.tar.bz2
+         chown studente.studente -R *
+         exit 0 	

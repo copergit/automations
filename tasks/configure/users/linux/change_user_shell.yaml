@@ -1,0 +1,13 @@
+---
+# usage aplaybook -l <group> --extra-vars "username=<value>"
+- name: Change user shell
+  hosts: all
+  become: true
+  vars:
+    username: studente
+  tasks:
+    - name: Change user shell
+      ansible.builtin.user:
+        name: "{{ username }}"
+        state: present
+        shell: /bin/bash

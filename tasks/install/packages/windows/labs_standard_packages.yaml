@@ -19,6 +19,7 @@
        - scribus
        - freecad
        - blender
+       - corretto8jre
        state: present
    - name: Install veyon
      win_chocolatey:

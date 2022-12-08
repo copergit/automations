@@ -1,0 +1,22 @@
+---
+# configure php apache mod
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Disable overlay fs
+       ansible.builtin.shell: |
+          /usr/local/bin/overlayroot -n
+          exit 0
+     - name: Reboot after disable overlay fs
+       reboot:
+     - name: Wait for connection
+       wait_for_connection:
+         delay: 2
+     - name: Copy olinfo iptables rules
+       ansible.builtin.copy:
+         src: /opt/ansible/scripts/firewall/olinfo
+         dest: /usr/local/bin/olinfo
+         owner: root
+         group: root
+         mode: u=rwx,g=rwx,o=r

@@ -1,0 +1,12 @@
+---
+# usage aplaybook -l <group> --extra-vars "password=<value>"
+- name: Change minion password
+  hosts: all
+  vars:
+    username: 'tecnico'
+    password: 'supersecretpassword'
+  tasks:
+    - name: Change Password
+      ansible.windows.win_user:
+        name: "{{ username }}"
+        password: "{{ password }}"

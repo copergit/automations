@@ -1,12 +1,13 @@
 ---
 # add host to dida domain
-# usage aplaybook -l <group> --extravars "password=<value>"
+# usage aplaybook -l <group> --extra-vars "password=<value>"
 
 - hosts: all
   gather_facts: no
   strategy: linear
   vars:
-    password: 'supersecretpassword'
+      ou: 'laptops'
+      password: 'supersecretpassword'
   serial: 1
   tasks:
     - name: Send magic Wake-On-Lan packet
@@ -23,8 +24,8 @@
       ansible.windows.win_domain_membership:
           dns_domain_name: dida.liceocopernico.edu.it
           domain_admin_user: djoin@dida.liceocopernico.edu.it
-          domain_admin_password: {{ password }}
-          domain_ou_path: "OU=laptops,OU=Clients,DC=dida,DC=liceocopernico,DC=edu,DC=it"
+          domain_admin_password: '{{ password }}'
+          domain_ou_path: "OU={{ ou }},OU=Clients,DC=dida,DC=liceocopernico,DC=edu,DC=it"
           state: domain
       ignore_errors: True    
       ignore_unreachable: yes

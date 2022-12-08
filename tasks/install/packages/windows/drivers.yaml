@@ -1,0 +1,9 @@
+---
+ - name: Install packages on docs workstations via choco
+   hosts: all
+   tasks:
+   - name: Install wacom drivers
+     win_chocolatey:
+       name: wacom-drivers
+       state: present
+       

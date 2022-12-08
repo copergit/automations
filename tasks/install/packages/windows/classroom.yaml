@@ -1,0 +1,26 @@
+---
+ - name: Install packages on classrooms laptops
+   hosts: all
+   tasks:
+   - name: Install multiple packages sequentially
+     win_chocolatey:
+      name: '{{ item }}'
+      state: present
+     loop:
+     - iperf3
+     - texstudio
+     - maxima
+     - julia
+     - vscode
+     - inkscape
+     - microsoft-windows-terminal
+     - 7zip
+     - scribus
+     - geogebra
+     - stellarium
+     - audacity
+     - processing
+     - python
+     - arduino
+     - libreoffice-fresh       
+     - openboard

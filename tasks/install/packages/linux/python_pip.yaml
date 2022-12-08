@@ -1,0 +1,28 @@
+---
+ - name: Install python modules via pip
+   hosts: all
+   become: true
+   tasks:
+   - name: Wait for connection
+     wait_for_connection:
+   - name: Install jupyter
+     ansible.builtin.pip:
+       name: jupyter
+   - name: Install ipympl
+     ansible.builtin.pip:
+       name: ipympl
+   - name: Install sklearn
+     ansible.builtin.pip:
+       name: sklearn
+   - name: Install jupyterlab
+     ansible.builtin.pip:
+       name: jupyterlab
+   - name: Install pyserial
+     ansible.builtin.pip:
+       name: pyserial
+   - name: Install matplotlib
+     ansible.builtin.pip:
+       name: matplotlib
+   - name: Install numpy
+     ansible.builtin.pip:
+       name: numpy

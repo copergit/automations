@@ -1,0 +1,30 @@
+---
+# Install non standard packages
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Create Hypatia dir
+       ansible.builtin.file:
+         path: /home/studente/hypatia
+         state: directory
+         owner: studente
+         group: studente
+         mode: '0755'
+     - name: Clean up old Hypatia
+       ansible.builtin.shell: rm -rf /home/studente/hypatia              
+     - name: Copy Hypatia from server
+       ansible.builtin.copy:
+         src: /opt/ansible_data/applications/hypatia.zip
+         dest: /home/studente/hypatia/
+         owner: studente
+         group: studente
+         mode: '644'
+     - name: unzip Hypatia
+       ansible.builtin.shell: |
+         cd /home/studente/hypatia
+         unzip hypatia.zip
+         rm hypatia.zip
+         chown studente.studente -R *
+         chmod +x HYPATIA_for_Linux.sh
+         exit 0 	

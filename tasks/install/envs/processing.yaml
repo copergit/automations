@@ -1,0 +1,22 @@
+---
+# Distribute processing env
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Copy processing profile  from server
+       ansible.builtin.copy:
+         src: /opt/ansible_data/applications/processing_env/processing.tar.bz2
+         dest: /home/studente/.config
+         owner: studente
+         group: studente
+         mode: '644'
+
+     - name: decompress files
+       ansible.builtin.shell: |
+         cd /home/studente/.config
+         rm -rf processing
+         tar jxvf processing.tar.bz2
+         rm processing.tar.bz2
+         chown -R studente.studente processing
+         exit 0 	

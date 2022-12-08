@@ -1,0 +1,10 @@
+---
+# Install windows updates and reboot as many times as required
+- hosts: all
+  gather_facts: no
+  tasks:
+   - name: Install all updates and reboot if needed
+     ansible.windows.win_updates:
+       category_names: '*'
+       reboot: yes
+       reboot_timeout: 3600

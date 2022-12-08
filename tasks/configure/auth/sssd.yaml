@@ -1,0 +1,28 @@
+---
+# configure basic grup defaults
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Copy auth_files
+       ansible.builtin.copy:
+         src: /opt/ansible_data/auth/auth.tar.bz2
+         dest: /tmp
+         mode: '640'
+     - name: Update grub config dir
+       ansible.builtin.shell: |
+             cd /tmp
+             tar jxvf auth.tar.bz2
+             cd auth
+             sudo cp sssd.conf /etc/sssd
+             sudo cp common-auth /etc/pam.d
+             sudo cp common-session /etc/pam.d
+             sudo cp group.conf /etc/security
+             sudo cp nsswitch.conf /etc
+             sudo mkdir -p /var/certs
+             sudo cp Google* /var/certs
+             sudo chown root.root /var/certs/*
+             sudo chmod 600 /var/certs/*
+             rm -rf /tmp/auth*
+             
+             

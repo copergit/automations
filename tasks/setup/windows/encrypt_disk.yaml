@@ -1,0 +1,14 @@
+---
+# set default shell to cmd
+- hosts: laptop
+  gather_facts: no
+  tasks:
+    - name: Copy folder contents recursively
+      ansible.windows.win_copy:
+          src: /opt/ansible/scripts/security/
+          dest: C:\users\tecnico
+
+    - name: Change the working directory to somedir/ before executing the command
+      ansible.windows.win_shell: C:\users\tecnico\activate_hdd_encryption.ps1
+    - name: Reboot windows client
+      ansible.windows.win_reboot:

@@ -36,6 +36,11 @@
         - thonny
         - ffmpeg
         - phpmyadmin
+        - google-chrome-stable
+        - gnome-control-center
+        - curl
+        - apt-transport-https
+        - python3-pygame   
    - name: Install geogebra5 latest version
      apt:
        deb: http://www.geogebra.net/linux/pool/main/g/geogebra5/geogebra5_5.0.668.0-3930_amd64.deb

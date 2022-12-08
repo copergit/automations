@@ -1,0 +1,8 @@
+---
+ - name: Purge package
+   hosts: all
+   become: true
+   gather_facts: no
+   tasks:
+   - name: Purge old package
+     ansible.builtin.shell: apt remove --purge geogebra -y

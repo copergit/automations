@@ -1,0 +1,22 @@
+---
+# Install non standard packages
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Clean up old Wine user dir
+       ansible.builtin.shell: rm -rf /home/studente/.wine
+     - name: Copy Wine user dir from server
+       ansible.builtin.copy:
+         src: /opt/ansible_data/applications/wine.tar.bz2
+         dest: /home/studente/
+         owner: studente
+         group: studente
+         mode: '644'
+     - name: untarbz .wine
+       ansible.builtin.shell: |
+         cd /home/studente
+         tar jxvf wine.tar.bz2
+         rm wine.tar.bz2
+         chown studente.studente -R .wine
+         exit 0 	

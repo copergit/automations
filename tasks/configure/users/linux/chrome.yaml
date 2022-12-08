@@ -1,0 +1,22 @@
+---
+#  Reset chrome studente config
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Clean up chrome
+       ansible.builtin.shell: |
+         rm -rf /home/studente/.config/google-chrome
+         rm -rf /home/studente/.cache/google-chrome
+         exit 0
+     - name: Copy Chrome prfile from  server
+       ansible.builtin.copy:
+         src: /opt/ansible_data/binary_files/homes/studente/google-chrome.tar.bz2
+         dest: /home/studente/.config
+     - name: decompress and update Chrome profile
+       ansible.builtin.shell: |
+         cd /home/studente/.config
+         tar jxvf google-chrome.tar.bz2
+         rm google-chrome.tar.bz2
+         chown studente.studente -R google-chrome
+         exit 0 	

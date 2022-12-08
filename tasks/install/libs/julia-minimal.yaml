@@ -1,0 +1,18 @@
+---
+# Install non standard packages
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: install Julia packages
+       ansible.builtin.shell: |
+         sudo -H -u studente rm -rf /home/studente/.julia
+         sudo -H -u studente julia -e 'using Pkg; pkg"add Luxor; st"'>>/tmp/JuliaLib.log
+         sudo -H -u studente julia -e 'using Pkg; pkg"add GameZero; st"'>>/tmp/JuliaLib.log
+         sudo -H -u studente julia -e 'using Pkg; pkg"add Colors; st"'>>/tmp/JuliaLib.log
+         sudo -H -u studente julia -e 'using Pkg; pkg"add PackageCompiler; st"'>>/tmp/JuliaLib.log 
+         sudo -H -u studente julia -e 'using Pkg; pkg"add Plots; st"'>>/tmp/JuliaLib.log 
+         sudo -H -u studente julia -e 'using Pkg; pkg"add Combinatorics; st"'>>/tmp/JuliaLib.log
+         sudo -H -u studente julia -e 'using Pkg; pkg"add LinearAlgebra; st"'>>/tmp/JuliaLib.log
+         sudo -H -u studente julia -e 'using Pkg; pkg"add DataStructures; st"'>>/tmp/JuliaLib.log
+         exit 0 	

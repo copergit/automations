@@ -1,0 +1,16 @@
+---
+# configure basic grup defaults
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Copy new configuration file
+       ansible.builtin.copy:
+         src: /opt/ansible/configurations/grub/grub
+         dest: /etc/default/
+         owner: root
+         group: root
+         mode: '644'
+     - name: Update grub config dir
+       ansible.builtin.shell: |
+             sudo update-grub 

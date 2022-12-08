@@ -1,0 +1,14 @@
+---
+# usage aplaybook -l <group> --extra-vars "username=<value>,description=<value>"
+- name: Change user 
+  hosts: all
+  become: true
+  vars:
+    username: studente
+    description: studente
+  tasks:
+    - name: Change user comment
+      ansible.builtin.user:
+        name: "{{ username }}"
+        state: present
+        comment: "{{ description }}"

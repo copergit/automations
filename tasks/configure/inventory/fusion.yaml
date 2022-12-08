@@ -1,0 +1,16 @@
+---
+# configure fusion inventory
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Wait for connection
+       wait_for_connection:
+         delay: 5
+     - name: Copy new configuration file
+       ansible.builtin.copy:
+         src: /opt/ansible/configurations/inventory/fusioninventory/agent.cfg
+         dest: /etc/fusioninventory/agent.cfg
+         owner: root
+         group: root
+         mode: '644'

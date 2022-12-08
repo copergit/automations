@@ -1,0 +1,22 @@
+---
+# Distribute vscode env
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Copy vscode profile  from server
+       ansible.builtin.copy:
+         src: /opt/ansible_data/applications/vscode_env/vscode_env.tar.bz2
+         dest: /home/studente
+         owner: studente
+         group: studente
+         mode: '644'
+
+     - name: decompress files
+       ansible.builtin.shell: |
+         cd /home/studente
+         rm -rf .vscode
+         tar jxvf vscode_env.tar.bz2
+         rm vscode_env.tar.bz2
+         chown -R studente.studente .vscode
+         exit 0 	

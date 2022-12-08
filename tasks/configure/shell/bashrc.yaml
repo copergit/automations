@@ -1,0 +1,13 @@
+---
+# distribute  bashrc
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Copy new configuration file
+       ansible.builtin.copy:
+         src: /opt/ansible/configurations/bash/studente/bashrc
+         dest: /home/studente/.bashrc
+         owner: studente
+         group: studente
+         mode: '644'

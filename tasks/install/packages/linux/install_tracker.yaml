@@ -1,0 +1,19 @@
+---
+# Install tracker
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Copy Tracker
+       ansible.builtin.copy:
+         src: /opt/ansible_data/applications/tracker.run
+         dest: /tmp
+         owner: root
+         group: root
+         mode: '744'
+     - name: Install
+       ansible.builtin.shell: |
+         cd /tmp
+         ./tracker.run --mode unattended
+         rm tracker.run
+         exit 0 	

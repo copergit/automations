@@ -1,0 +1,10 @@
+---
+# configure php apache mod
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Restrict olinf
+       ansible.builtin.shell: |
+          /usr/local/bin/olinfo
+          exit 0

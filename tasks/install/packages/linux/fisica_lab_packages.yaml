@@ -1,0 +1,34 @@
+---
+ - name: Install standard physics lab packages
+   hosts: all
+   become: true
+   gather_facts: no
+   tasks:
+   - name: Wait for connection
+     wait_for_connection:
+   - name: Update packages database
+     apt:
+       update_cache: yes
+   - name: Install packages
+     apt:
+       state: latest
+       pkg:
+        - fusioninventory-agent
+        - fusioninventory-agent-task-collect
+        - fusioninventory-agent-task-deploy
+        - fusioninventory-agent-task-esx
+        - fusioninventory-agent-task-network
+        - scilab
+        - octave
+        - sane
+        - xsane
+        - sane-utils
+        - wine
+        - winetricks
+        - q4wine
+        - audacity
+        - python3-pip
+   - name: Install nomachine
+     apt:
+       deb: https://download.nomachine.com/download/8.1/Linux/nomachine_8.1.2_1_amd64.deb
+       

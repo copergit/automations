@@ -1,0 +1,38 @@
+---
+# Distributo common Julia sysimage and vscode conf
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Clean up previous installations of julia
+       ansible.builtin.shell: sudo rm -rf /home/studente/.vscode
+     - name: Copy Julia sysimage from server
+       ansible.builtin.copy:
+         src: /opt/ansible_data/applications/julia_env/julia_env_1.8.tar.bz2
+         dest: /home/studente
+         owner: studente
+         group: studente
+         mode: '644'
+     - name: Copy vscode profile  from server
+       ansible.builtin.copy:
+         src: /opt/ansible_data/applications/julia_env/vscode_env.tar.bz2
+         dest: /home/studente
+         owner: studente
+         group: studente
+         mode: '644'
+
+     - name: decompress files
+       ansible.builtin.shell: |
+         cd /home/studente
+         rm -rf .vscode
+         rm -rf .julia/environments/v1.8
+         tar jxvf vscode_env.tar.bz2
+         rm vscode_env.tar.bz2
+         mkdir -p /home/studente/.julia/environments/v1.8
+         mv /home/studente/julia_env_1.8.tar.bz2 /home/studente/.julia/environments/v1.8/
+         cd /home/studente/.julia/environments/v1.8
+         tar jxvf julia_env_1.8.tar.bz2
+         chown -R studente.studente .julia
+         chown -R studente.studente .vscode
+         rm julia_env_1.8.tar.bz2
+         exit 0 	

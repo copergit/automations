@@ -5,12 +5,12 @@
   tasks:
     - name: Copy folder contents recursively
       ansible.windows.win_copy:
-          src: /opt/ansible/scripts/cleanup/
+          src: /opt/ansible/scripts/monitoring/
           dest: C:\users\tecnico
 
     - name: Change the working directory to somedir/ before executing the command
-      ansible.windows.win_shell: C:\users\tecnico\delete_gw_local_users.ps1
+      ansible.windows.win_shell: C:\users\tecnico\list_gw_users.ps1
       register: delete_results
-    - name: grab cleanup output
-      fetch: src={{ inventory_hostname }}.log dest=results/ flat=yes
+    - name: Grab result output
+      fetch: src={{ inventory_hostname }}.csv dest=gw_results/ flat=yes
 

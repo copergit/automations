@@ -1,0 +1,22 @@
+---
+# Install non standard packages
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Clean up previous installations of arduino
+       ansible.builtin.shell: rm -rf /opt/arduino*
+     - name: Copy Arduino client from server
+       ansible.builtin.copy:
+         src: /opt/ansible_data/applications/arduino/arduino.tar.bz2
+         dest: /opt
+     - name: decompress Arduino ide
+       ansible.builtin.shell: |
+         cd /opt
+         tar jxvf arduino.tar.bz2
+         rm /opt/arduino.tar.bz2
+         rm /usr/local/bin/arduino*
+         ln -s /opt/arduino-ide/arduino-ide /usr/local/bin/arduino-ide
+         rm /usr/share/applications/arduino.desktop
+         cp /opt/arduino-ide/arduino.desktop /usr/share/applications/arduino.desktop
+         exit 0 	

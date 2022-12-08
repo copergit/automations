@@ -1,0 +1,16 @@
+---
+# setup autologin
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Copy new configuration file
+       ansible.builtin.copy:
+         src: /opt/ansible/configurations/gdm/custom_standard.conf
+         dest: /etc/gdm3/custom.conf
+         owner: root
+         group: root
+         mode: '644'
+     - name: Restart gdm
+       ansible.builtin.shell: |
+             sudo /etc/init.d/gdm3 restart 

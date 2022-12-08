@@ -1,0 +1,20 @@
+---
+# Install non standard packages
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+     - name: Clean up previous installations of julia
+       ansible.builtin.shell: rm -rf /opt/julia-1.*
+     - name: Copy Julia from server
+       ansible.builtin.copy:
+         src: /opt/ansible_data/applications/julia-1.8.1-linux-x86_64.tar.gz
+         dest: /opt
+     - name: decompress Julia
+       ansible.builtin.shell: |
+         cd /opt
+         tar zxvf julia-1.8.1-linux-x86_64.tar.gz
+         rm julia-1.7.3-linux-x86_64.tar.gz
+         rm /usr/local/bin/julia
+         ln -s /opt/julia-1.8.1/bin/julia /usr/local/bin/julia
+         exit 0 	

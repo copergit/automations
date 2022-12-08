@@ -1,0 +1,16 @@
+---
+ - name: Update all packages
+   hosts: all
+   serial: 3
+   become: true
+   gather_facts: no
+   tasks:
+   - name: Wait for connection
+     wait_for_connection:
+   - name: Update packages database
+     apt:
+       update_cache: yes
+   - name: Update all packages to their latest version
+     ansible.builtin.apt:
+       name: "*"
+       state: latest

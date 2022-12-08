@@ -1,0 +1,23 @@
+---
+ - name: Install auth packages
+   hosts: all
+   become: true
+   gather_facts: no
+   tasks:
+   - name: Wait for connection
+     wait_for_connection:
+   - name: Update packages database
+     apt:
+       update_cache: yes
+   - name: Install packages
+     apt:
+       state: latest
+       pkg:
+        - sssd
+        - sssd-ad
+        - sssd-ipa
+        - sssd-krb5
+        - sssd-ldap
+        - sssd-proxy
+        - nscd
+        - libpam-sss

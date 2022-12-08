@@ -1,0 +1,11 @@
+---
+ - name: Install old veyon
+   hosts: all
+   become: true
+   gather_facts: no
+   tasks:
+   - name: Wait for connection
+     wait_for_connection:
+   - name: Install packages
+     apt:
+       deb: https://github.com/veyon/veyon/releases/download/v4.4.2/veyon_4.4.2-ubuntu-focal_amd64.deb

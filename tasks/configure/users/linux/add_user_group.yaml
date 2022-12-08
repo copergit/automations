@@ -1,0 +1,15 @@
+---
+# usage aplaybook -l <group> --extra-vars "username=<value> group=<value>4"
+- name: Add user to group
+  hosts: all
+  become: true
+  vars:
+    username: studente
+    group: dialout
+  tasks:
+    - name: Add user to group
+      ansible.builtin.user:
+        name: "{{ username }}"
+        state: present
+        groups: "{{ group }}"
+        append: yes

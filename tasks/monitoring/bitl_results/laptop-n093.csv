@@ -1,0 +1,2 @@
+pc,location,windows-vers,TPM-enabled,BL-ready-drive,BL-encrypted
+laptop-n093,2.1,\\LAPTOP-N093\root\cimv2:Win32_OperatingSystem=@,\\LAPTOP-N093\root\cimv2\security\microsofttpm:Win32_Tpm=@,C:,True
