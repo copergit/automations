@@ -1,5 +1,7 @@
 ---
-# setup autologin
+# This playbook enables gdm autologin with labs default user
+# this playbook is Linux only
+#
 - hosts: all
   become: true
   gather_facts: no

@@ -1,5 +1,7 @@
 ---
-# configure basic grup defaults
+# This playbook is used to configure sssd in order to
+# use google ldap auth in ubuntu clients
+# this playbook is windows only
 - hosts: all
   become: true
   gather_facts: no

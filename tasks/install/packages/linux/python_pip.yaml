@@ -5,9 +5,6 @@
    tasks:
    - name: Wait for connection
      wait_for_connection:
-   - name: Install jupyter
-     ansible.builtin.pip:
-       name: jupyter
    - name: Install ipympl
      ansible.builtin.pip:
        name: ipympl
@@ -26,3 +23,10 @@
    - name: Install numpy
      ansible.builtin.pip:
        name: numpy
+   - name: Install Vpython
+     ansible.builtin.pip:
+       name: vpython
+   - name: Install Vpython-jupyterlab
+     ansible.builtin.pip:
+       name: jupyterlab-vpython
+       

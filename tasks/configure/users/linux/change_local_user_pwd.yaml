@@ -1,5 +1,6 @@
 ---
-# usage aplaybook -l <group> --extra-vars "password=<value>"
+# This playbook changes a specified local user password
+# usage aplaybook -l <machines> --extra-vars "username=<value> password=<value>"
 - name: Change local user password
   hosts: all
   become: true

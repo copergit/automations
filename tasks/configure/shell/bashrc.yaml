@@ -1,5 +1,7 @@
 ---
-# distribute  bashrc
+# This playbook configure labs pc bash
+# it distributes bashrc inside default user home dir
+# this playbook is Linux Only
 - hosts: all
   become: true
   gather_facts: no

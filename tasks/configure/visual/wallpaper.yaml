@@ -1,5 +1,7 @@
 ---
+# Change linux local user wallpaper
 # distribute wallpapers
+# not tested yet
 - hosts: all
   become: true
   gather_facts: no

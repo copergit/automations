@@ -1,5 +1,7 @@
 ---
-# configure basic grup defaults
+# This playbook sets some standard grub options 
+# in order to use pxe boot
+# this playbook is Linux only
 - hosts: all
   become: true
   gather_facts: no

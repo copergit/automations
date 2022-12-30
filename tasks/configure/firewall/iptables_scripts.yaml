@@ -1,5 +1,7 @@
 ---
-# configure php apache mod
+# This playbook configures iptables
+# for Computer science tournaments
+#
 - hosts: all
   become: true
   gather_facts: no

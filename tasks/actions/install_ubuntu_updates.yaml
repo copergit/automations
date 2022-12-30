@@ -1,3 +1,6 @@
+# This playbook installs latest Ubuntu updates
+# use this script on lab computers
+#
 ---
  - name: Update all packages
    hosts: all

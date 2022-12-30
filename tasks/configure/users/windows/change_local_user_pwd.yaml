@@ -1,5 +1,7 @@
 ---
-# usage aplaybook -l <group> --extra-vars "password=<value>"
+# This playbook changes a specified local user password
+# usage aplaybook -l <group> --extra-vars "username=<value> password=<value>"
+#
 - name: Change minion password
   hosts: all
   vars:

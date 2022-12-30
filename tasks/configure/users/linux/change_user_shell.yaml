@@ -1,5 +1,6 @@
 ---
-# usage aplaybook -l <group> --extra-vars "username=<value>"
+# This playbook changes a specific user shell and resets it to bash
+# usage aplaybook -l <machines> --extra-vars "username=<value>"
 - name: Change user shell
   hosts: all
   become: true

@@ -1,5 +1,6 @@
 ---
-# usage aplaybook -l <group> --extra-vars "username=<value> group=<value>4"
+# This playbook appends groups to a specific user
+# usage aplaybook -l <machines> --extra-vars "username=<value> group=<value>"
 - name: Add user to group
   hosts: all
   become: true

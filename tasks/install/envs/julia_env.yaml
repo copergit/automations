@@ -1,5 +1,7 @@
 ---
-# Distributo common Julia sysimage and vscode conf
+# 
+# This playbook  distributes  common Julia sysimage and vscode conf
+# You must compile Julia sysimage yourself
 - hosts: all
   become: true
   gather_facts: no

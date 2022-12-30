@@ -1,5 +1,6 @@
 ---
-# setup autologin
+# This playbook disables autologin in gdm
+# this playbook is Linux only
 - hosts: all
   become: true
   gather_facts: no

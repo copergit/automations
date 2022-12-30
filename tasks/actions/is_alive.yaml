@@ -1,5 +1,8 @@
 ---
 # ping machines
+# Check if computer are online and active 
+# for a quick and dirty test you could use
+# ansible <group> -m ping
 - hosts: all
   gather_facts: false
   tasks:

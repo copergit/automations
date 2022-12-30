@@ -1,5 +1,8 @@
 ---
-# disable overlayroot
+# This playbook disables overlayroot fs 
+# inside computer labs
+# this playbook is Linux Only
+
 - hosts: all
   become: true
   gather_facts: no

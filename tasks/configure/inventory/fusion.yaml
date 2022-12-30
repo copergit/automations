@@ -1,5 +1,7 @@
 ---
-# configure fusion inventory
+# This playbook configures fusion inventory plugin
+# by uploading its configuration file
+# this playbook is Linux Only
 - hosts: all
   become: true
   gather_facts: no

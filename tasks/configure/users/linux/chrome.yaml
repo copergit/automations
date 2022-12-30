@@ -1,5 +1,7 @@
 ---
-#  Reset chrome studente config
+# This playbook resets default user chrome config
+# deletes every previous configuration
+#
 - hosts: all
   become: true
   gather_facts: no

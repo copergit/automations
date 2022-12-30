@@ -1,4 +1,7 @@
 ---
+# This playbook configures all non standard apt repos
+# this is used on labs computers
+# this playbook is Linux Only
  - name: Configure apt repository
    hosts: all
    become: true

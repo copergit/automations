@@ -1,5 +1,8 @@
 ---
 # set pxe boot once
+# this playbook configures pxe boot 
+# this is usefull when you need to reimage labs computers
+#
 - hosts: all
   become: true
   gather_facts: no

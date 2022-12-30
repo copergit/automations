@@ -1,5 +1,7 @@
 ---
-# configure php apache mod
+# This playbook configures apache and php debug
+# for Computer science courses
+# this playbook is Linux only
 - hosts: all
   become: true
   gather_facts: no

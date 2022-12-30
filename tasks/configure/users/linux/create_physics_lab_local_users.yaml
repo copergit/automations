@@ -1,5 +1,7 @@
 ---
-# usage aplaybook -l <group> --extra-vars "password=<value>"
+# This playbook creates physics lab local users
+# usage aplaybook -l <group> --extra-vars "password=<value> password=<value>"
+
 - name: Create local users accounts
   hosts: all
   become: true

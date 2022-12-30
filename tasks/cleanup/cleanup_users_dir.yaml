@@ -1,5 +1,6 @@
 ---
-# 
+# This playbook deletes old gsuite users home directories
+# this playbook is Windows only
 - hosts: aule
   gather_facts: no
   tasks:

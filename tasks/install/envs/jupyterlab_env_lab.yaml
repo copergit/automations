@@ -1,24 +1,23 @@
 ---
-# This playbook installs default jupyter lab env inside
-# default labs local user
+# Install jupyte_env
 - hosts: all
   become: true
   gather_facts: no
   tasks:
-     - name: Clean up previous installations of arduino
+     - name: Clean up previous installations of jupyterlabs
        ansible.builtin.shell: rm -rf /opt/jupyter
      - name: Copy home env from server
        ansible.builtin.copy:
-         src: /opt/ansible_data/applications/jupyter_env/jupyter.tar.bz2
+         src: /opt/ansible_data/applications/jupyter_env/jupyter_labs.tar.bz2
          dest: /opt
      - name: decompress Data
        ansible.builtin.shell: |
          cd /opt
-         tar jxvf jupyter.tar.bz2
-         rm /opt/jupyter.tar.bz2
+         tar jxvf jupyter_labs.tar.bz2
+         rm /opt/jupyter_labs.tar.bz2
          rm -f /usr/share/applications/jupyter.desktop
-         cp /opt/jupyter/jupyter.desktop /usr/share/applications/jupyter.desktop
+         cp /opt/jupyter_labs/jupyter.desktop /usr/share/applications/jupyter.desktop
          mkdir -p /home/studente/.jupyter
-         cp /opt/jupyter/jupyter_lab_config.py /home/studente/.jupyter
+         cp /opt/jupyter_labs/jupyter_lab_config.py /home/studente/.jupyter
          chown studente.studente -R /home/studente/.jupyter
          exit 0 	

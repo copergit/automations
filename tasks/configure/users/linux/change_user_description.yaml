@@ -1,5 +1,7 @@
 ---
-# usage aplaybook -l <group> --extra-vars "username=<value>,description=<value>"
+# This playbook changes a default local user description
+# usage aplaybook -l <machines> --extra-vars "username=<value> description=<value>"
+# 
 - name: Change user 
   hosts: all
   become: true

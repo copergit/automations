@@ -1,5 +1,7 @@
 ---
-# 
+# This playbook deletes local users from windows machines 
+# during summer manteinance 
+# this playbook is Windows only
 - hosts: all
   gather_facts: no
   tasks:

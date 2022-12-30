@@ -1,5 +1,6 @@
 ---
-# enable overlayroot
+# This playbook enables overlayroot fs
+# onto labs computers
 - hosts: all
   become: true
   gather_facts: no

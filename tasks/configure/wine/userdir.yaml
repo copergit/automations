@@ -1,5 +1,7 @@
 ---
-# Install non standard packages
+# This playbook install non standard wine packages and
+# configures default lab user wine dir
+#
 - hosts: all
   become: true
   gather_facts: no
