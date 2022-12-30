@@ -27,11 +27,11 @@ help_file.write("Liceo Copernico (UD)\n")
 
 
 for current_section in data:
-    help_file.write("## "+'/'.join(current_section)+"\n")
+    help_file.write("### "+'/'.join(current_section)+"\n")
     for help in data[current_section]:
-        help_file.write("### "+help[0]+"\n")
+        help_file.write("##### "+help[0]+"\n")
         for line in help[1:-1]:
-            help_file.write(line+"\n")
+            help_file.write("*"+line+"*\n")
 
 
 help_file.close()
