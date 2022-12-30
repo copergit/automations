@@ -7,7 +7,7 @@ data={}
 
 for playbook in result:
 
-    key=playbook.parts[0:-2]
+    key=playbook.parts[0:-1]
     filename=playbook.parts[-1]
     if not(key in data):
         data[key]=[]
@@ -29,7 +29,7 @@ help_file.write("Liceo Copernico (UD)\n")
 for current_section in data:
     help_file.write("### "+'/'.join(current_section)+"\n")
     for help in data[current_section]:
-        help_file.write("##### "+help[0]+"\n")
+        help_file.write("***"+help[0]+"***\n")
         for line in help[1:-1]:
             help_file.write("*"+line+"*\n")
 
