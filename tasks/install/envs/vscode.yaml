@@ -1,5 +1,7 @@
 ---
-# Distribute vscode env
+# This playbook distributes vscode env to labs default user
+# 
+
 - hosts: all
   become: true
   gather_facts: no

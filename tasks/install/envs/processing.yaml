@@ -1,5 +1,6 @@
 ---
-# Distribute processing env
+# Configure and distribute  processing env to default user
+# folder
 - hosts: all
   become: true
   gather_facts: no

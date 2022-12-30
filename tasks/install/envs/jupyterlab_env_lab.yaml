@@ -1,5 +1,7 @@
 ---
-# Install jupyte_env
+# Install jupyterlab_env for labs computers
+# this playbook is preconfigured for computer  science labs and not physics labs
+
 - hosts: all
   become: true
   gather_facts: no
